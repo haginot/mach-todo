@@ -10,6 +10,6 @@ class TaskController @Inject() extends Controller {
 
   def create = TODO
 
-  def delete = TODO
+  def delete(taskId: Int) = TODO
 
 }

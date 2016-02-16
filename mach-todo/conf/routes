@@ -10,4 +10,4 @@ GET           /assets/*file         controllers.Assets.versioned(path="/public",
 
 GET           /tasks                controllers.TaskController.list
 POST          /tasks                controllers.TaskController.create
-DELETE        /tasks/:taskId        controllers.TaskController.delete
+DELETE        /tasks/:taskId        controllers.TaskController.delete(taskId: Int)
