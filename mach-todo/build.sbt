@@ -10,10 +10,15 @@ libraryDependencies ++= Seq(
   jdbc,
   cache,
   ws,
-  specs2 % Test
+  specs2 % Test,
+  "com.typesafe.play" %% "play-slick" % "1.1.1",
+  "com.h2database" % "h2" % "1.4.191"
 )
 
-resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
+resolvers ++= Seq(
+ "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
+ "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
+)
 
 // Play provides two styles of routers, one expects its actions to be injected, the
 // other, legacy style, accesses its actions statically.
