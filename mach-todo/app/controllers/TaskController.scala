@@ -4,7 +4,7 @@ import javax.inject.Inject
 
 import play.api.mvc.Controller
 
-class TaskController @Inject() extends Controller {
+class TaskController extends Controller {
 
   def list = TODO
 
