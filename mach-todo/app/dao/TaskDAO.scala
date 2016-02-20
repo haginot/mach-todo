@@ -20,12 +20,14 @@ class TaskDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)
 
   def insert(task: Task): Future[Unit] = db.run(Tasks += task).map { _ => () }
 
+  def delete(title: String): Future[Unit] = db.run(Tasks.filter(_.title === title.bind).delete).map { _ => () }
+
   private class TasksTable(tag: Tag) extends Table[Task](tag, "TASK") {
 
-    def name = column[String]("TITLE", O.PrimaryKey)
+    def title = column[String]("TITLE", O.PrimaryKey)
     def status = column[String]("STATUS")
 
-    def * = (name, status) <> (Task.tupled, Task.unapply _)
+    def * = (title, status) <> (Task.tupled, Task.unapply _)
   }
 
 }
