@@ -37,8 +37,8 @@ lazy val slickCodeGenTask = (baseDirectory, dependencyClasspath in Compile, runn
   val url = "jdbc:h2:mem:play;mode=mysql;INIT=runscript from 'conf/migration.sql'" // connection info for a pre-populated throw-away, in-memory db for this demo, which is freshly initialized on every run
   val jdbcDriver = "org.h2.Driver"
   val slickDriver = "slick.driver.H2Driver"
-  val pkg = "models"
+  val pkg = "repositories.rdb.task"
   toError(r.run("slick.codegen.SourceCodeGenerator", cp.files, Array(slickDriver, jdbcDriver, url, outputDir, pkg), s.log))
-  val fname = outputDir + "/models/Tables.scala"
+  val fname = outputDir + "/repositories/rdb/task/Tables.scala"
   Seq(file(fname))
 }
