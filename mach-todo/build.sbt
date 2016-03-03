@@ -21,6 +21,8 @@ resolvers ++= Seq(
  "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
 )
 
+play.PlayImport.PlayKeys.playDefaultPort := 9090
+
 // Play provides two styles of routers, one expects its actions to be injected, the
 // other, legacy style, accesses its actions statically.
 routesGenerator := InjectedRoutesGenerator
